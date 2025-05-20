@@ -1,0 +1,7 @@
+[0.000000] (-) TimerEvent: {}
+[0.000363] (p3at_description) JobQueued: {'identifier': 'p3at_description', 'dependencies': OrderedDict()}
+[0.000799] (p3at_description) JobStarted: {'identifier': 'p3at_description'}
+[0.014791] (p3at_description) JobProgress: {'identifier': 'p3at_description', 'progress': 'cmake'}
+[0.015905] (p3at_description) StderrLine: {'line': b'Traceback (most recent call last):\n  File "/usr/lib/python3/dist-packages/colcon_core/executor/__init__.py", line 91, in __call__\n    rc = await self.task(*args, **kwargs)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_core/task/__init__.py", line 93, in __call__\n    return await task_method(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_ros/task/ament_cmake/build.py", line 59, in build\n    rc = await extension.build(\n         ^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/build.py", line 87, in build\n    rc = await self._reconfigure(args, env)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/build.py", line 173, in _reconfigure\n    raise RuntimeError("Could not find \'cmake\' executable")\nRuntimeError: Could not find \'cmake\' executable\n'}
+[0.016462] (p3at_description) JobEnded: {'identifier': 'p3at_description', 'rc': 1}
+[0.026490] (-) EventReactorShutdown: {}
