@@ -17,11 +17,16 @@ services:
       - type: bind
         source: /dev/shm
         target: /dev/shm
+      - type: bind
+        source: /home/forev
+        target: /home/forev
     environment:
       - XAUTHORITY
       - DISPLAY
       - QT_X11_NO_MITSHM=1
-    command: ros2 launch p3at_description display.launch.py
+    #command: ros2 launch p3at_description display.launch.py
+    command: ros2 launch p3at_description nav2.launch.py
+    
     tty: true
     stdin_open: true
   

@@ -26,3 +26,8 @@ Change the display number to be 0.<br><br>
 
 `Cant find gpu / gpu not found`
 <br> Commend down the runtime + gpu inside `compose.yaml` file.
+
+
+ros2 run nav2_map_server map_saver_cli
+
+https://github.com/art-e-fact/navigation2_ignition_gazebo_example

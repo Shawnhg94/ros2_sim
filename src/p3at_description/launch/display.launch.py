@@ -27,7 +27,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     description_file = os.path.join(get_package_share_directory("p3at_description"), "urdf", "pioneer1.urdf")
-    world_file = os.path.join(get_package_share_directory("p3at_description"), "world", "empty.sdf")
+    world_file = os.path.join(get_package_share_directory("p3at_description"), "world", "one.sdf")
     # cartographer
     cartographer_config_dir = os.path.join(get_package_share_directory('p3at_description'), 'config', 'cartographer')
     configuration_basename = '2d.lua' 
