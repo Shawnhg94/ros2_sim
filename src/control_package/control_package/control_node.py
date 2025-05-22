@@ -56,12 +56,13 @@ class ControlNode(Node):
             dist.append(self.getRangeAtDegree(msg, angle))
             
         self.minRange, self.minAngle = self.getMinRange(dist)
-        if (self.minRange < 0.7):
+        if (self.minRange < 1.0):
             self.is_obstacle = True
         else:
             self.is_obstacle = False
             
         if (self.is_obstacle):
+            print('Obstacle Detected!')
             self.publish_twist(0.0, 0.0)
             if (self.step_counter % 2 == 0):
                 self.turn_angle(-90.0)
@@ -121,6 +122,8 @@ class ControlNode(Node):
         self.target_counter = int(abs(angle) / 1.8)
             
         self.is_turning = True
+        
+        self.angle_counter = 0
         
         self.publish_twist(0.0, angular_sp)
         
