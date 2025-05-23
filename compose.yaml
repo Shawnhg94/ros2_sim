@@ -26,9 +26,11 @@ services:
       - QT_X11_NO_MITSHM=1
     #command: ros2 launch p3at_description display.launch.py
     command: ros2 launch p3at_description nav2.launch.py
+    #command: ros2 launch p3at_description map.launch.py
     
     tty: true
     stdin_open: true
+
   control_node:
     image: gazebo:dev
     privileged: true

@@ -7,6 +7,9 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(xacro REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclpy REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.https://www.dell.com/en-au/shop/dell-27-plus-adjustable-stand-monitor-s2725hs/apd/210-bmnm/monitors-monitor-accessories
 # find_package(<dependency> REQUIRED)
@@ -14,6 +17,13 @@ find_package(ament_cmake REQUIRED)
 install(DIRECTORY
   launch meshes urdf world rviz config
   DESTINATION share/${PROJECT_NAME})
+
+  # Install Python executables
+install(PROGRAMS
+scripts/reach_goal.py
+scripts/follow_waypoints.py
+DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
