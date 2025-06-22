@@ -34,7 +34,7 @@ services:
   control_node:
     image: gazebo:dev
     privileged: true
-    container_name: control_node
+    container_name: image_node
     network_mode: host
     runtime: nvidia # Commend down all runtime + deploy if you dont have gpu
     deploy:
@@ -57,7 +57,7 @@ services:
       - DISPLAY
       - QT_X11_NO_MITSHM=1
     #command: ros2 launch p3at_description display.launch.py
-    command: ros2 run control_package control_node
+    command: ros2 run control_package image_node
     
     tty: true
     stdin_open: true

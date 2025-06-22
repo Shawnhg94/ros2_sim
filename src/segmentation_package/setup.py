@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'control_package'
+package_name = 'segmentation_package'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'image_node = control_package.image_node:main'
+            'segmentation_publisher = segmentation_package.segmentation_publisher:main'
         ],
     },
 )
