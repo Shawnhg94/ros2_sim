@@ -51,7 +51,7 @@ class ImageManager:
 class ImageNode(Node):
     def __init__(self):
         super().__init__('image_node')
-        self.publisher_ = self.create_publisher(Image, 'image_topic', 10)
+        self.publisher_ = self.create_publisher(Image, 'CameraFront', 10)
         self.bridge = CvBridge()
         self.timer = self.create_timer(0.033, self.timer_cb)
         self.image_manager =ImageManager('/home/forev/project/ros2_sim/input/')
@@ -65,7 +65,9 @@ class ImageNode(Node):
         if (self.index >= self.image_manager.get_num()):
             return
 
-        cv_img = self.image_manager.get_img(self.index)
+        cv_ori_img = self.image_manager.get_img(self.index)
+        cv_img = cv2.resize(cv_ori_img, (W, H))
+
         
         ros_image_message = self.bridge.cv2_to_imgmsg(cv_img, "mono8")
         ros_image_message.header.stamp = self.get_clock().now().to_msg()
