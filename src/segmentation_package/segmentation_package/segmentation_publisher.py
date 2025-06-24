@@ -240,7 +240,25 @@ class SegmentationPublisher(Node):
         ros_image_message.header.stamp = self.get_clock().now().to_msg()
         self.publisher_.publish(ros_image_message)
 
-def main():
-    rclpy.init()
-    rclpy.spin(SegmentationPublisher())
+def main(args=None):
+    rclpy.init(args=args)
+
+    seg_publisher = SegmentationPublisher()
+    rclpy.spin(seg_publisher)
+    #while(rclpy.ok()):
+    #    cam_publisher.timer_callback()
+        #cam_publisher._loop_rate.sleep()
+    #    #sleep()
+
+    # Release reference to camera
+    seg_publisher.shutdownInstance()
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    seg_publisher.destroy_node()
     rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
